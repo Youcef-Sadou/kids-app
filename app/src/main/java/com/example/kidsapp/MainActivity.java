@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //add task_list button
-        ImageButton AddTasklist_btn = findViewById(R.id.AddTasklistButton);
+        ImageButton AddTasklist_btn = findViewById(R.id.AddTaskButton);
         AddTasklist_btn.setOnClickListener((v) -> {
             Intent intent = new Intent(this, TasklistAdder.class);
             //startActivity(intent);
