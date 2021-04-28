@@ -14,14 +14,50 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> tasklist_dates  = new ArrayList<String>();
     static ArrayList<TL> Tasklists = new ArrayList<TL>();           // i have to make this static so i can access it from other activites
     static int Done = 0 ;
+    String tasklist_dates_combined;
+
     // LinearLayout layoutList = findViewById(R.id.layout_list);
     int cpt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LinearLayout layoutList = findViewById(R.id.layout_list);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //shared prefrences i will put the whole thing in a string then save it then take it out
+        tasklist_dates_combined = getPreferences(MODE_PRIVATE).getString("value","");
+
+        String dates[] = tasklist_dates_combined.split(" ");
+        if(!tasklist_dates_combined.equals("")) {
+            TextView textView = findViewById(R.id.textView);
+            textView.setText("");
+            for (int i = 0; i < dates.length; i++) {
+                final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_tasklist, null, false);
+                //this creates a new view
+
+
+                //this locates the list
+                layoutList = findViewById(R.id.layout_list);
+
+
+                layoutList.addView(tasklistView);
+                TextView tv = (TextView) layoutList.getChildAt(i);
+                tv.setText(dates[i]);
+                String current_date = dates[i];
+                // Making it basically a button to the tasks activity
+                tv.setOnClickListener((v) -> {
+                    Intent intent = new Intent(this, Task.class);
+                    intent.putExtra("TaskListID",current_date);  // returns the date of the task list which will serve as the id to the task
+
+                    startActivity(intent);
+                });
+            }
+        }
+
+
+
+
 
         //add task_list button
         ImageButton AddTasklist_btn = findViewById(R.id.AddTaskButton);
@@ -48,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = findViewById(R.id.textView);
                 tasklist_dates.add(returnString);
 
+                tasklist_dates_combined =  tasklist_dates_combined + " "+  returnString  ;
+                getPreferences(MODE_PRIVATE).edit().putString("value",tasklist_dates_combined).apply();
                 textView.setText("");
 
 
@@ -83,4 +121,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-}   
+}
