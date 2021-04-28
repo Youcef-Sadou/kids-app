@@ -7,5 +7,12 @@
     <string name="you_have_no_task_lists"> You have no task lists </string>
     <string name="you_have_no_tasks"> You have no tasks</string>
     <string name="select_hour">Select Hour</string>
+    <string name="what_kind_of_activity_is_this">What Kind of Activity is this?</string>
+    <string name="home">Home</string>
+    <string name="school">School</string>
+    <string name="food">Food</string>
+    <string name="other">Other</string>
+    <string name="what_task_are_you_doing">What task Are you Doing??</string>
+    <string name="task">Task</string>
 
 </resources>

@@ -12,7 +12,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> tasklist_dates  = new ArrayList<String>();
-   // LinearLayout layoutList = findViewById(R.id.layout_list);
+    static ArrayList<TL> Tasklists = new ArrayList<TL>();           // i have to make this static so i can access it from other activites
+    static int Done = 0 ;
+    // LinearLayout layoutList = findViewById(R.id.layout_list);
     int cpt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Check that it is the SecondActivity with an OK result
-        if (requestCode == 3) {
+        if (requestCode == 3 && Done == 0) {
             if (resultCode == RESULT_OK) {
 
                 // Get String data from Intent
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView textView = findViewById(R.id.textView);
                 tasklist_dates.add(returnString);
-                cpt++;
+
                 textView.setText("");
 
 
@@ -71,11 +73,14 @@ public class MainActivity extends AppCompatActivity {
                     // Making it basically a button to the tasks activity
                     tv.setOnClickListener((v) -> {
                         Intent intent = new Intent(this, Task.class);
+                        intent.putExtra("TaskListID",tv.getText().toString());  // returns the date of the task list which will serve as the id to the task
+
                         startActivity(intent);
                     });
                 }
             }
         }
     }
+
 
 }   

@@ -8,12 +8,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class TasklistAdder extends AppCompatActivity {
     TextView tvDate;
     DatePickerDialog.OnDateSetListener setListener;
     String date;
+    static int cpt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -59,9 +61,117 @@ public class TasklistAdder extends AppCompatActivity {
             date = tvDate.getText().toString();
             intent.putExtra("keyName", date);
             setResult(RESULT_OK, intent);
+
+
+
+
+
+
+
+            MainActivity.Tasklists.add(this.cpt,new TL(date, new ArrayList<T>()));
+
+            MainActivity.Tasklists.get(this.cpt).Date = date;
+            T Task = new T("","",""); // empty task
+
+            MainActivity.Tasklists.get(this.cpt).Tasks.add(0,Task);
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Category = "";
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Hour = "";
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Description = "";
+            this.cpt++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             this.finish();
         });
 
 
     }
+    protected void onResume() {
+        super.onResume();
+        setContentView(R.layout.activity_tasklist_adder);
+
+        tvDate = findViewById(R.id.tv_date);
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        setListener = (view, year1, month1, dayOfMonth) -> {
+            month1 = month1 + 1 ;
+            date = day + "/" + month1 + "/" + year1;
+            System.out.print(date);
+            tvDate.setText(date);
+
+
+        };
+        tvDate.setOnClickListener((v) -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    TasklistAdder.this, (view, year12, month12, day1) -> {
+                month12 = month12 + 1 ;
+                String date = day1 + "/" + month12 + "/" + year12;
+                tvDate.setText(date);
+            },year,month,day);
+            //adding a validate button to the adder so that way we can change the date if we made a mistake
+
+
+            datePickerDialog.show();
+
+        });
+
+
+        ImageButton validate = findViewById(R.id.validateButton);
+        validate.setOnClickListener((v) -> {
+
+
+            // Putting the String to pass back into an Intent and then closing the taskList adder activity
+            Intent intent = new Intent();
+            date = tvDate.getText().toString();
+            intent.putExtra("keyName", date);
+            setResult(RESULT_OK, intent);
+
+
+
+
+
+
+
+            MainActivity.Tasklists.add(this.cpt,new TL(date, new ArrayList<T>()));
+
+            MainActivity.Tasklists.get(this.cpt).Date = date;
+            T Task = new T("","",""); // empty task
+
+            MainActivity.Tasklists.get(this.cpt).Tasks.add(0,Task);
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Category = "";
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Hour = "";
+            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Description = "";
+            this.cpt++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            this.finish();
+        });
+}
 }
