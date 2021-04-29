@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "840989384333",
+    "project_id": "kids-app-ae14b",
+    "storage_bucket": "kids-app-ae14b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840989384333:android:13e172105c3ef20ad30cc4",
+        "android_client_info": {
+          "package_name": "com.example.kidsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840989384333-l49ddtiuq7q04e8abi05mcuda9ntpnu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYuP4fF6_UcKYG-hUWBu0QkROGZKuReaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840989384333-l49ddtiuq7q04e8abi05mcuda9ntpnu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

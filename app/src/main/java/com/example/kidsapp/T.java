@@ -10,8 +10,5 @@ public class T {
         this.Category = Category;
         this.Description = Description;
     }
-    T(){
-
-    }
 
 }

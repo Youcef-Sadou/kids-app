@@ -2,6 +2,7 @@ package com.example.kidsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Task extends AppCompatActivity {
-    String Hour;
-    String Category;
-    String Description;
-    TL TaskList ;
-    static HashMap<String, ArrayList<String>> TasklistToTasks = new HashMap<String, ArrayList<String>>();
-    ArrayList<String> task_list_tasks = new ArrayList<String>();
+    static HashMap<String, ArrayList<String>> TasklistToTasks = new HashMap<>();
+    ArrayList<String> task_list_tasks = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,33 +33,13 @@ public class Task extends AppCompatActivity {
 
         if (found == 1){
             TextView tv2 = findViewById(R.id.textView2);
-            //tv2.setText(task_list_tasks.get(0));//again we will only show the first item (for now)
             tv2.setText(""); // so it won't  bother us
 
-/*
-            final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_1,null,false);
-            LinearLayout layoutList = findViewById(R.id.layout_list222);
-
-            layoutList.addView(tasklistView);
-*/
-
-
-
-
         }
-
-
-
-
-
-
-        //setContentView(R.layout.activity_task);
 
         ImageButton AddTasklist_btn = findViewById(R.id.AddTaskButton);
         AddTasklist_btn.setOnClickListener((v) -> {
             Intent intent = new Intent(this, TaskAdder.class);
-            //startActivity(intent);
-            //startActivityForResult(intent, 3);
             intent.putExtra("TaskListID2",taskListID);  // returns the date of the task list which will serve as the id to the task
 
             startActivityForResult(intent, 4);
@@ -97,71 +74,57 @@ public class Task extends AppCompatActivity {
                     tv2.setText(""); // so it won't  bother us
 
 
+                    switch (task_list_tasks.get(0).substring(8, 9)) {
+                        case "1": {
+                            @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_1, null, false);
 
+                            TextView Hour = tasklistView.findViewById(R.id.task1_hour);
+                            Hour.setText(task_list_tasks.get(0).substring(0, 8));
 
-                    if(task_list_tasks.get(0).substring(8,9).equals("1")) {
-                        final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_1, null, false);
+                            TextView Desc = tasklistView.findViewById(R.id.task1_desc);
+                            Desc.setText(task_list_tasks.get(0).substring(9));
+                            LinearLayout layoutList = findViewById(R.id.layout_list222);
+                            layoutList.addView(tasklistView);
+                            break;
+                        }
+                        case "2": {
+                            @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_2, null, false);
 
-                        TextView Hour = tasklistView.findViewById(R.id.task1_hour);
-                        Hour.setText(task_list_tasks.get(0).substring(0, 8));
+                            TextView Hour = tasklistView.findViewById(R.id.task2_hour);
+                            Hour.setText(task_list_tasks.get(0).substring(0, 8));
 
-                        TextView Desc = tasklistView.findViewById(R.id.task1_desc);
-                        Desc.setText(task_list_tasks.get(0).substring(9));
-                        LinearLayout layoutList = findViewById(R.id.layout_list222);
-                        layoutList.addView(tasklistView);
-                    }else if(task_list_tasks.get(0).substring(8,9).equals("2")) {
-                        final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_2, null, false);
+                            TextView Desc = tasklistView.findViewById(R.id.task2_desc);
+                            Desc.setText(task_list_tasks.get(0).substring(9));
+                            LinearLayout layoutList = findViewById(R.id.layout_list222);
+                            layoutList.addView(tasklistView);
+                            break;
+                        }
+                        case "3": {
+                            @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_3, null, false);
 
-                        TextView Hour = tasklistView.findViewById(R.id.task2_hour);
-                        Hour.setText(task_list_tasks.get(0).substring(0, 8));
+                            TextView Hour = tasklistView.findViewById(R.id.task3_hour);
+                            Hour.setText(task_list_tasks.get(0).substring(0, 8));
 
-                        TextView Desc = tasklistView.findViewById(R.id.task2_desc);
-                        Desc.setText(task_list_tasks.get(0).substring(9));
-                        LinearLayout layoutList = findViewById(R.id.layout_list222);
-                        layoutList.addView(tasklistView);
-                    }else if(task_list_tasks.get(0).substring(8,9).equals("3")) {
-                        final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_3, null, false);
+                            TextView Desc = tasklistView.findViewById(R.id.task3_desc);
+                            Desc.setText(task_list_tasks.get(0).substring(9));
+                            LinearLayout layoutList = findViewById(R.id.layout_list222);
+                            layoutList.addView(tasklistView);
+                            break;
+                        }
+                        case "4": {
+                            @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_4, null, false);
 
-                        TextView Hour = tasklistView.findViewById(R.id.task3_hour);
-                        Hour.setText(task_list_tasks.get(0).substring(0, 8));
+                            TextView Hour = tasklistView.findViewById(R.id.task4_hour);
+                            Hour.setText(task_list_tasks.get(0).substring(0, 8));
 
-                        TextView Desc = tasklistView.findViewById(R.id.task3_desc);
-                        Desc.setText(task_list_tasks.get(0).substring(9));
-                        LinearLayout layoutList = findViewById(R.id.layout_list222);
-                        layoutList.addView(tasklistView);
-                    }else if(task_list_tasks.get(0).substring(8,9).equals("4")) {
-                        final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_4, null, false);
-
-                        TextView Hour = tasklistView.findViewById(R.id.task4_hour);
-                        Hour.setText(task_list_tasks.get(0).substring(0, 8));
-
-                        TextView Desc = tasklistView.findViewById(R.id.task4_desc);
-                        Desc.setText(task_list_tasks.get(0).substring(9));
-                        LinearLayout layoutList = findViewById(R.id.layout_list222);
-                        layoutList.addView(tasklistView);
+                            TextView Desc = tasklistView.findViewById(R.id.task4_desc);
+                            Desc.setText(task_list_tasks.get(0).substring(9));
+                            LinearLayout layoutList = findViewById(R.id.layout_list222);
+                            layoutList.addView(tasklistView);
+                            break;
+                        }
                     }
 
-
-
-
-
-
-
-
-
-                  /*    LinearLayout SecondLevel = (LinearLayout)FirstLevel.getChildAt(0);
-                    TextView Hour = (TextView)SecondLevel.getChildAt(1);
-                    Hour.setText("4:20 AM");
-*/
-                    //layoutList.addView(FirstLevel);
-
-
-                    /*LinearLayout l2 = (LinearLayout)    ((LinearLayout)tasklistView).getChildAt(0);
-                    //LinearLayout l3 = (LinearLayout)    ((LinearLayout)l2).getChildAt(0);
-                    TextView Hour = (TextView) (l2).getChildAt(1);
-                    Hour.setText("4:20 AM");
-                    /**/
-                    //Where i put set text, i have to do the other thingy now XD
 
                 }
             }

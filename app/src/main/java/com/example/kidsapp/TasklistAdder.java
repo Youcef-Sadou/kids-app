@@ -68,16 +68,16 @@ public class TasklistAdder extends AppCompatActivity {
 
 
 
-            MainActivity.Tasklists.add(this.cpt,new TL(date, new ArrayList<T>()));
+            MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
 
-            MainActivity.Tasklists.get(this.cpt).Date = date;
+            MainActivity.Tasklists.get(cpt).Date = date;
             T Task = new T("","",""); // empty task
 
-            MainActivity.Tasklists.get(this.cpt).Tasks.add(0,Task);
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Category = "";
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Hour = "";
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Description = "";
-            this.cpt++;
+            MainActivity.Tasklists.get(cpt).Tasks.add(0,Task);
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Category = "";
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Hour = "";
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Description = "";
+            cpt++;
 
 
 
@@ -147,16 +147,16 @@ public class TasklistAdder extends AppCompatActivity {
 
 
 
-            MainActivity.Tasklists.add(this.cpt,new TL(date, new ArrayList<T>()));
+            MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
 
-            MainActivity.Tasklists.get(this.cpt).Date = date;
+            MainActivity.Tasklists.get(cpt).Date = date;
             T Task = new T("","",""); // empty task
 
-            MainActivity.Tasklists.get(this.cpt).Tasks.add(0,Task);
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Category = "";
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Hour = "";
-            MainActivity.Tasklists.get(this.cpt).Tasks.get(0).Description = "";
-            this.cpt++;
+            MainActivity.Tasklists.get(cpt).Tasks.add(0,Task);
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Category = "";
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Hour = "";
+            MainActivity.Tasklists.get(cpt).Tasks.get(0).Description = "";
+            cpt++;
 
 
 
