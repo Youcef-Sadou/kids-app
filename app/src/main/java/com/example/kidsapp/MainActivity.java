@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> tasklist_dates  = new ArrayList<>();
     static ArrayList<TL> Tasklists = new ArrayList<>();           // i have to make this static so i can access it from other activites
+    static ArrayList<TL> Tasklist_array =  new ArrayList<>();
+    static String Selected_tasklist;
     static int Done = 0 ;
     String tasklist_dates_combined;
 
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
             textView.setText("");
             for (int i = 0; i < dates.length; i++) {
                 @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_tasklist, null, false);
-
+                //initializing the tasklistarray
+                Tasklist_array.add(new TL(dates[i], new ArrayList<T>()));
                 //this creates a new view
 
 
@@ -85,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get String data from Intent
                 String returnString = data.getStringExtra("keyName");
-
-
+                //adding the tasklist to tasklist array
+                Tasklist_array.add(new TL(returnString, new ArrayList<T>()));
                 TextView textView = findViewById(R.id.textView);
                 tasklist_dates.add(returnString);
 

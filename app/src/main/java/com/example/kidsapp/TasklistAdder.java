@@ -62,34 +62,11 @@ public class TasklistAdder extends AppCompatActivity {
             intent.putExtra("keyName", date);
             setResult(RESULT_OK, intent);
 
-
-
-
-
-
-
             MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
 
             MainActivity.Tasklists.get(cpt).Date = date;
-            T Task = new T("","",""); // empty task
 
-            MainActivity.Tasklists.get(cpt).Tasks.add(0,Task);
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Category = "";
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Hour = "";
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Description = "";
             cpt++;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             this.finish();
@@ -142,11 +119,6 @@ public class TasklistAdder extends AppCompatActivity {
             setResult(RESULT_OK, intent);
 
 
-
-
-
-
-
             MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
 
             MainActivity.Tasklists.get(cpt).Date = date;
@@ -157,18 +129,6 @@ public class TasklistAdder extends AppCompatActivity {
             MainActivity.Tasklists.get(cpt).Tasks.get(0).Hour = "";
             MainActivity.Tasklists.get(cpt).Tasks.get(0).Description = "";
             cpt++;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             this.finish();

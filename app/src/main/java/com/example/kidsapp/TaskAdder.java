@@ -19,7 +19,7 @@ public class TaskAdder extends AppCompatActivity {
     int tvHour, tvMinute;
     String Task_id = "";// this will be returned to the Task activity
     String Hour;
-    String Category;
+    String Category = "4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class TaskAdder extends AppCompatActivity {
         RadioButton home = findViewById(R.id.radioButton2);
         RadioButton food = findViewById(R.id.radioButton3);
         RadioButton other = findViewById(R.id.radioButton4);
+        Category = "4";
         school.setOnClickListener((v) -> Category = "1");
 
         home.setOnClickListener((v) -> Category = "2");
@@ -77,6 +78,18 @@ public class TaskAdder extends AppCompatActivity {
                     ArrayList<String> Tasks = new ArrayList<>();
                     Tasks.add(Task_id);
                     Task.TasklistToTasks.put(b.getString("TaskListID2"),Tasks);
+                    //aadded code
+                    for(TL TaskList : MainActivity.Tasklist_array){
+                        if(TaskList.Date.equals(b.getString("TaskListID2"))){
+                            T task = new T(Hour,Category,task_description.getText().toString());
+                            TaskList.Tasks.add(task);
+
+                        }
+
+                    }
+
+
+
 
                     setResult(RESULT_OK, intent);
                     this.finish();

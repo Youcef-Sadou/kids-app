@@ -6,9 +6,7 @@ public class TL {
     String Date;
     ArrayList<T>  Tasks;
 
-    TL(){
-        // i need the empty constructor as well
-    }
+
 
 
 
