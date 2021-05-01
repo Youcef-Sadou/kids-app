@@ -157,48 +157,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if (requestCode == 3 && Done == 0) {
-            if (resultCode == RESULT_OK) {
-
-
-                // Get String data from Intent
-          //      String returnString = data.getStringExtra("keyName");
-                //adding the tasklist to tasklist array
-                //Tasklist_array.add(new TL(returnString, new ArrayList<>()));
-                TextView textView = findViewById(R.id.textView);
-
-                //  tasklist_dates.add(returnString);
-
-                //tasklist_dates_combined =  tasklist_dates_combined + " "+  returnString  ;
-                //getPreferences(MODE_PRIVATE).edit().putString("value",tasklist_dates_combined).apply();
-                textView.setText("");
-
-
-
-
-                @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_tasklist,null,false);
-                //this creates a new view
-
-
-                //this locates the list
-                LinearLayout layoutList = findViewById(R.id.layout_list);
-
-
-                layoutList.addView(tasklistView);
-
-                 for (int i = 0; i <(layoutList.getChildCount());i++){
-                     TextView tv = (TextView) layoutList.getChildAt(i);
-
-                    tv.setText(Tasklist_array.get(i).Date);
-                     tv.setOnClickListener((v) -> {
-                         Intent intent = new Intent(this, Task.class);
-                         intent.putExtra("TaskListID",tv.getText().toString());  // returns the date of the task list which will serve as the id to the task
-
-                         startActivity(intent);
-                     });
-                 }
-            }
-        }
     }
 
 

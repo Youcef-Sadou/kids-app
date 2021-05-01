@@ -16,5 +16,6 @@
     <string name="task">Task</string>
     <string name="tlaie">You have no task lists</string>
     <string name="yhnt">You have no tasks</string>
+    <string name="removed">removed</string>
 
 </resources>
