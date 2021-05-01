@@ -1,5 +1,5 @@
 package com.example.kidsapp;
-    
+
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -15,6 +18,9 @@ public class TasklistAdder extends AppCompatActivity {
     TextView tvDate;
     DatePickerDialog.OnDateSetListener setListener;
     String date;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+
     static int cpt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +37,8 @@ public class TasklistAdder extends AppCompatActivity {
 
         setListener = (view, year1, month1, dayOfMonth) -> {
             month1 = month1 + 1 ;
-              date = day + "/" + month1 + "/" + year1;
-              System.out.print(date);
+            date = day + "/" + month1 + "/" + year1;
+            System.out.print(date);
             tvDate.setText(date);
 
 
@@ -40,15 +46,15 @@ public class TasklistAdder extends AppCompatActivity {
         tvDate.setOnClickListener((v) -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     TasklistAdder.this, (view, year12, month12, day1) -> {
-                        month12 = month12 + 1 ;
-                        String date = day1 + "/" + month12 + "/" + year12;
-                        tvDate.setText(date);
-                    },year,month,day);
+                month12 = month12 + 1 ;
+                String date = day1 + "/" + month12 + "/" + year12;
+                tvDate.setText(date);
+            },year,month,day);
             //adding a validate button to the adder so that way we can change the date if we made a mistake
 
 
             datePickerDialog.show();
-            
+
         });
 
 
@@ -118,20 +124,32 @@ public class TasklistAdder extends AppCompatActivity {
             intent.putExtra("keyName", date);
             setResult(RESULT_OK, intent);
 
+            ArrayList<T> Tasks = new ArrayList<>();
+            Tasks.add(new T("","",""));
+            MainActivity.Tasklist_array.add(new TL(date, Tasks));
 
-            MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
 
-            MainActivity.Tasklists.get(cpt).Date = date;
-            T Task = new T("","",""); // empty task
 
-            MainActivity.Tasklists.get(cpt).Tasks.add(0,Task);
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Category = "";
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Hour = "";
-            MainActivity.Tasklists.get(cpt).Tasks.get(0).Description = "";
-            cpt++;
+
+
+           rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
+            reference = rootNode.getReference();
+            DatabaseReference rrr = reference.child("Tasklists");
+
+            rrr.setValue(null);
+            rrr.setValue(MainActivity.Tasklist_array);
+
+
+            this.finish();
+
+
+
+
+
+
 
 
             this.finish();
         });
-}
+    }
 }

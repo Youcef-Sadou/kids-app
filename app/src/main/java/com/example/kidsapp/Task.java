@@ -36,18 +36,20 @@ public class Task extends AppCompatActivity {
             }
         }
 
-        if (found == 1 && TLL.Tasks.size() != 0) {
+        if (found == 1 && TLL.Tasks.size() > 1) {
             TextView tv2 = findViewById(R.id.textView2);
             tv2.setText(""); // so it won't  bother us
-            switch (TLL.Tasks.get(TLL.Tasks.size() -1).Category) {
+
+            for (T Task : TLL.Tasks)
+            switch (Task.Category) {
                 case "1": {
                     @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_1, null, false);
 
                     TextView Hour = tasklistView.findViewById(R.id.task1_hour);
-                    Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);
+                    Hour.setText(Task.Hour);
 
                     TextView Desc = tasklistView.findViewById(R.id.task1_desc);
-                    Desc.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Description);
+                    Desc.setText(Task.Description);
                     LinearLayout layoutList = findViewById(R.id.layout_list222);
                     layoutList.addView(tasklistView);
                     break;
@@ -56,10 +58,10 @@ public class Task extends AppCompatActivity {
                     @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_2, null, false);
 
                     TextView Hour = tasklistView.findViewById(R.id.task2_hour);
-                    Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);
+                    Hour.setText(Task.Hour);
 
                     TextView Desc = tasklistView.findViewById(R.id.task2_desc);
-                    Desc.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Description);
+                    Desc.setText(Task.Description);
                     LinearLayout layoutList = findViewById(R.id.layout_list222);
                     layoutList.addView(tasklistView);
                     break;
@@ -68,10 +70,10 @@ public class Task extends AppCompatActivity {
                     @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_3, null, false);
 
                     TextView Hour = tasklistView.findViewById(R.id.task3_hour);
-                    Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);
+                    Hour.setText(Task.Hour);
 
                     TextView Desc = tasklistView.findViewById(R.id.task3_desc);
-                    Desc.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Description);
+                    Desc.setText(Task.Description);
                     LinearLayout layoutList = findViewById(R.id.layout_list222);
                     layoutList.addView(tasklistView);
                     break;
@@ -80,10 +82,10 @@ public class Task extends AppCompatActivity {
                     @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_4, null, false);
 
                     TextView Hour = tasklistView.findViewById(R.id.task4_hour);
-                    Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);
+                    Hour.setText(Task.Hour);
 
                     TextView Desc = tasklistView.findViewById(R.id.task4_desc);
-                    Desc.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Description);
+                    Desc.setText(Task.Description);
                     LinearLayout layoutList = findViewById(R.id.layout_list222);
                     layoutList.addView(tasklistView);
                     break;
@@ -93,6 +95,9 @@ public class Task extends AppCompatActivity {
             }
 
 
+        }else{
+            TextView tv2 = findViewById(R.id.textView2);
+            tv2.setText(R.string.yhnt);
         }
 
 
@@ -131,9 +136,9 @@ public class Task extends AppCompatActivity {
 
                 TL TLL = null;
 
-                 b = getIntent().getExtras();
-                 taskListID = b.getString("TaskListID");      //finding the id to the tasklist
-                 found = 0;
+                b = getIntent().getExtras();
+                taskListID = b.getString("TaskListID");      //finding the id to the tasklist
+                found = 0;
                 for (TL TaskList  :    MainActivity.Tasklist_array){
                     if(TaskList.Date.equals(taskListID)){           // we have already added it (if we already added it that means there is atleast 1 task in the task list )
                         TLL = TaskList;
@@ -164,7 +169,7 @@ public class Task extends AppCompatActivity {
                             @SuppressLint("InflateParams") final View tasklistView = getLayoutInflater().inflate(R.layout.row_add_task_2, null, false);
 
                             TextView Hour = tasklistView.findViewById(R.id.task2_hour);
-                            Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);  
+                            Hour.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Hour);
 
                             TextView Desc = tasklistView.findViewById(R.id.task2_desc);
                             Desc.setText(TLL.Tasks.get(TLL.Tasks.size() -1).Description);
@@ -211,4 +216,38 @@ public class Task extends AppCompatActivity {
     }
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
