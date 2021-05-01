@@ -24,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     static ArrayList<TL> Tasklists = new ArrayList<>();           // i have to make this static so i can access it from other activites
     static ArrayList<TL> Tasklist_array =  new ArrayList<>();
+    static int cpt = 0;
     ValueEventListener valueEventListener;
     static int Done = 0 ;
-
+    int i = 0;
     FirebaseDatabase rootNode;
    DatabaseReference reference;
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(Tasklist_array.size() != 0){
-            int i = 0;
+
             TextView textView = findViewById(R.id.textView);
             textView.setText("");
             for (TL tasklist : Tasklist_array){
@@ -107,6 +108,26 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(intent);
                 });
+                tv.setOnLongClickListener((v) -> {
+
+                          for(int i =0;i<Tasklist_array.size();i++){
+                                if(Tasklist_array.get(i).getDate().equals(tv.getText().toString())){
+
+                                    Tasklist_array.remove(i);
+                                    tv.setText("removed");
+
+                                    rrr.setValue(MainActivity.Tasklist_array);
+                                    this.recreate();
+
+                                }
+                            }
+
+                            return false;
+
+                   });
+
+                cpt++;
+
             }
         }else{
             TextView textView = findViewById(R.id.textView);

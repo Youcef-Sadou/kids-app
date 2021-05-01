@@ -14,7 +14,7 @@
     <string name="other">Other</string>
     <string name="what_task_are_you_doing">What task Are you Doing??</string>
     <string name="task">Task</string>
-    <string name="tlaie">\"Task list array is empty \"</string>
-    <string name="yhnt">you have no tasks :)</string>
+    <string name="tlaie">You have no task lists</string>
+    <string name="yhnt">You have no tasks</string>
 
 </resources>
