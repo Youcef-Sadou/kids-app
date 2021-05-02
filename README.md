@@ -13,7 +13,8 @@ pour ajouter une liste de tâches, cliquez simplement sur le bouton Ajouter ci-d
 où vous choisirez une date pour votre liste de tâches, puis appuyez sur le bouton de validation comme indiqué ci-dessous (PS: le bouton de validation ne fonctionnera 
 que si vous sélectionnez une date)
 
-<< insérer l'ajout d'un gif de liste de tâches ici >>
+![add tasklist](https://user-images.githubusercontent.com/61503552/116823585-3bf36280-ab7d-11eb-9042-0ff3c915a2ae.gif)
+
 
 Si vous souhaitez supprimer une certaine liste de tâches, tout ce que vous avez à faire est de rester sur la liste de tâches
 
