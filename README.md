@@ -31,7 +31,7 @@ différentes listes de tâches ont des icônes différentes
 
 
 
-Si vous souhaitez supprimer une certaine liste de tâches, tout ce que vous avez à faire est de rester sur la liste de tâches  
+Si vous souhaitez supprimer une certaine tâche, il vous suffit de vous en tenir à la description de la tâche
 
 ![delete task](https://user-images.githubusercontent.com/61503552/116823656-942a6480-ab7d-11eb-813e-e6860c97a2bc.gif)
 
@@ -44,4 +44,68 @@ La base de données Firebase contient une ArrayList TL (liste de tâches) conten
 ci-dessous, une image de la structure de la base de données
 
 ![Screenshot (97)](https://user-images.githubusercontent.com/61503552/116823669-9bea0900-ab7d-11eb-8b72-ec5cabbe305d.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+English:
+About the application
+
+This application is basically a task manager for kids to help them keep track of the things that they need to do 
+
+Functionality 
+
+When you enter the app for the first time, you will get a message telling you that you have no task lists 
+to add a task list, simply click on the the add button below, and it will take you to the task list adder activity, where you will choose a date for your task list and then press 
+on the validate button as shown underneath (PS: the validate button won't work unless you select a date)
+
+![add tasklist](https://user-images.githubusercontent.com/61503552/116823585-3bf36280-ab7d-11eb-9042-0ff3c915a2ae.gif)
+
+
+
+If you want to delete a certain task list, all you have to do is hold on the task list 
+
+
+![delete tasklist](https://user-images.githubusercontent.com/61503552/116823616-5cbbb800-ab7d-11eb-8a0a-22aa91392614.gif)
+
+
+When you enter a tasklist, you will be in the task activity, the first time you will get a message saying that you have no tasks, with the same button as previous tasklist activity you
+can add a task, to add a task simply select the hour of the task, the category of the task (School,Home....) and the description then press validate as shown underneath
+PS: the validate button won't work unless you select the hour and the description, if you select no category the default category (Other) will be assigned to your task 
+diffrent tasklists have different icons
+
+![add task ](https://user-images.githubusercontent.com/61503552/116823647-8aa0fc80-ab7d-11eb-86e2-2e982a8b9891.gif)
+
+If you want to delete a certain task , all you have to do is hold on the description of the task
+
+
+![delete task](https://user-images.githubusercontent.com/61503552/116823656-942a6480-ab7d-11eb-813e-e6860c97a2bc.gif)
+
+
+DataType and Database 
+
+For the data type, first i represented the tasklist array as a hash map, with the key being the tasklist date, and the value is a task array , but then after a few troubles with the 
+hashmap i decided to create the TL and T class representing the tasklist and task respectively, this made it easier for me to manipulate the structure rather than a hash map
+
+
+The Firebase database contains a TL (tasklist) ArrayList containing all of the tasklist we inserted , the database gets updated every time we add a tasklist, delete a tasklist, add a task to a tasklist, remove a task from the tasklist
+
+below is a picture of how the database is structured
+
+![Screenshot (97)](https://user-images.githubusercontent.com/61503552/116823669-9bea0900-ab7d-11eb-8b72-ec5cabbe305d.png)
+
+
+
+
+
 
