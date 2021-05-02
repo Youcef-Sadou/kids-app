@@ -132,13 +132,14 @@ public class TasklistAdder extends AppCompatActivity {
 
 
 
-           rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
+            rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
             reference = rootNode.getReference();
             DatabaseReference rrr = reference.child("Tasklists");
-
+            //connecting to the Firebase database and getting the reference
             rrr.setValue(null);
             rrr.setValue(MainActivity.Tasklist_array);
 
+            //updating the database with the new tasklist
 
             this.finish();
 

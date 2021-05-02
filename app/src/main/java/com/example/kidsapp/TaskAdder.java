@@ -22,7 +22,7 @@ public class TaskAdder extends AppCompatActivity {
     int tvHour, tvMinute;
     String Task_id = "";// this will be returned to the Task activity
     String Hour;
-    String Category = "4";
+    String Category = "4";      // the default category is 4 (other) if the person who added a task did not select from the categories
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -33,8 +33,10 @@ public class TaskAdder extends AppCompatActivity {
         setContentView(R.layout.activity_task_adder);
         rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = rootNode.getReference();
+        //connecting to the Firebase database and getting the reference
+
         DatabaseReference rrr = reference.child("Tasklists");
-        // this code is to get the hour as a string and show it incase they want to change it
+
         tv_hour  = findViewById(R.id.tv_hour);
 
         tv_hour.setOnClickListener((v) -> {
@@ -107,7 +109,7 @@ public class TaskAdder extends AppCompatActivity {
 
                 rrr.setValue(null);
                 rrr.setValue(MainActivity.Tasklist_array);
-
+                //updating the database with the new task
 
                 this.finish();
             }

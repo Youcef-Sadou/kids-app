@@ -28,10 +28,12 @@ public class Task extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = rootNode.getReference();
         DatabaseReference rrr = reference.child("Tasklists");
+        //connecting to the Firebase database and getting the reference
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
         int found = 0;
-   //     TextView Desc ;
         //for now we will assume it is just 1 task per task list just so we will see if it works or not
         Bundle b = getIntent().getExtras();
         String taskListID = b.getString("TaskListID");      //finding the id to the tasklist
@@ -73,6 +75,7 @@ public class Task extends AppCompatActivity {
                                             MainActivity.Tasklist_array.get(i).Tasks.remove(j);
                                             Desc.setText(R.string.removed);
                                             rrr.setValue(MainActivity.Tasklist_array);
+                                            //updating the database with the deletion of the task
                                             this.recreate();
 
                                         }
@@ -212,7 +215,6 @@ public class Task extends AppCompatActivity {
         });
 
 
-        //CODE THAT REMOVES THE THE TASK VIEW
 
 
 

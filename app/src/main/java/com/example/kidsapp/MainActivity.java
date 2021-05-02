@@ -40,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     Activity random = this;
-        // maybe.????
-        //attempting to retrieve the tasklist array from the database
 
         rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
       reference = rootNode.getReference();
       DatabaseReference rrr = reference.child("Tasklists");
+        //connecting to the Firebase database and getting the reference
 
         valueEventListener = new ValueEventListener() {
 
@@ -72,12 +71,9 @@ public class MainActivity extends AppCompatActivity {
         };
 
         rrr.keepSynced(true);
+        //syncing the database
         rrr.addValueEventListener(valueEventListener);
-       /* if(Done <3  ) {
-            this.recreate();
-            Done ++;
-        }       rrr.keepSynced(true);/
-*/
+
 
         setContentView(R.layout.activity_main);
 
@@ -117,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                     tv.setText("removed");
 
                                     rrr.setValue(MainActivity.Tasklist_array);
+                                    //updating the database with the deletion of the tasklist
                                     this.recreate();
 
                                 }
@@ -132,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             TextView textView = findViewById(R.id.textView);
             textView.setText(R.string.tlaie);
-//            rrr.addValueEventListener(valueEventListener);
         }
 
 
@@ -154,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         this.recreate();
-
+        //we restart the activity
 
 
     }
