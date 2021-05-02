@@ -27,11 +27,13 @@ Lorsque vous entrez dans une liste de tâches, vous serez dans l'activité de t�
 PS: le bouton de validation ne fonctionnera que si vous sélectionnez l'heure et la description, si vous ne sélectionnez aucune catégorie la catégorie par défaut (Autre) sera affectée à votre tâche
 différentes listes de tâches ont des icônes différentes
 
-<< insérer l'ajout du gif de tâche ici >>
+![add task ](https://user-images.githubusercontent.com/61503552/116823647-8aa0fc80-ab7d-11eb-86e2-2e982a8b9891.gif)
+
+
 
 Si vous souhaitez supprimer une certaine liste de tâches, tout ce que vous avez à faire est de rester sur la liste de tâches  
 
-<< insérer la suppression de la tâche gif >>
+![delete task](https://user-images.githubusercontent.com/61503552/116823656-942a6480-ab7d-11eb-813e-e6860c97a2bc.gif)
 
 DataType et base de données
 
@@ -41,4 +43,5 @@ La base de données Firebase contient une ArrayList TL (liste de tâches) conten
 
 ci-dessous, une image de la structure de la base de données
 
-<<insérer la capture d'écran de la base de données >>
+![Screenshot (97)](https://user-images.githubusercontent.com/61503552/116823669-9bea0900-ab7d-11eb-8b72-ec5cabbe305d.png)
+
