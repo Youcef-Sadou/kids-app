@@ -1,14 +1,14 @@
-#Kids App
+# Kids App
 
 Ce readme est disponible en deux langues: anglais et français
 This readme has two languages : English and French
 
-##Français:
+## Français:
 
-###À propos de l'application:
+### À propos de l'application:
 Cette application est essentiellement un gestionnaire de tâches pour les enfants pour les aider à suivre les choses qu'ils doivent faire
 
-###Fonctionnalité 
+### Fonctionnalité 
 
 Lorsque vous entrez dans l'application pour la première fois, vous recevrez un message vous informant que vous n'avez pas de liste de tâches
 pour ajouter une liste de tâches, cliquez simplement sur le bouton Ajouter ci-dessous, et cela vous mènera à l'activité de l'additionneur de liste de tâches, 
@@ -37,7 +37,7 @@ Si vous souhaitez supprimer une certaine tâche, il vous suffit de vous en tenir
 
 ![delete task](https://user-images.githubusercontent.com/61503552/116823656-942a6480-ab7d-11eb-813e-e6860c97a2bc.gif)
 
-###DataType et base de données
+### DataType et base de données
 
 Pour le type de données, j'ai d'abord représenté le tableau de la liste des tâches sous forme de carte de hachage, la clé étant la date de la liste des tâches, et la valeur est un tableau de tâches, mais après quelques problèmes avec le hashmap j'ai décidé de créer la classe TL et T représentant respectivement la liste des tâches et la tâche, cela m'a facilité la manipulation de la structure plutôt qu'une carte de hachage
 
@@ -60,12 +60,12 @@ ci-dessous, une image de la structure de la base de données
 
 
 
-##English:
-###About the application
+## English:
+### About the application
 
 This application is basically a task manager for kids to help them keep track of the things that they need to do 
 
-###Functionality 
+### Functionality 
 
 When you enter the app for the first time, you will get a message telling you that you have no task lists 
 to add a task list, simply click on the the add button below, and it will take you to the task list adder activity, where you will choose a date for your task list and then press 
@@ -94,7 +94,7 @@ If you want to delete a certain task , all you have to do is hold on the descrip
 ![delete task](https://user-images.githubusercontent.com/61503552/116823656-942a6480-ab7d-11eb-813e-e6860c97a2bc.gif)
 
 
-###DataType and Database 
+### DataType and Database 
 
 For the data type, first i represented the tasklist array as a hash map, with the key being the tasklist date, and the value is a task array , but then after a few troubles with the 
 hashmap i decided to create the TL and T class representing the tasklist and task respectively, this made it easier for me to manipulate the structure rather than a hash map
