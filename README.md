@@ -6,7 +6,7 @@ Français:
 À propos de l'application:
 Cette application est essentiellement un gestionnaire de tâches pour les enfants pour les aider à suivre les choses qu'ils doivent faire
 
-Functionality 
+Fonctionnalité 
 
 Lorsque vous entrez dans l'application pour la première fois, vous recevrez un message vous informant que vous n'avez pas de liste de tâches
 pour ajouter une liste de tâches, cliquez simplement sur le bouton Ajouter ci-dessous, et cela vous mènera à l'activité de l'additionneur de liste de tâches, 
