@@ -60,22 +60,23 @@ public class TasklistAdder extends AppCompatActivity {
 
         ImageButton validate = findViewById(R.id.validateButton);
         validate.setOnClickListener((v) -> {
-
-
-            // Putting the String to pass back into an Intent and then closing the taskList adder activity
-            Intent intent = new Intent();
             date = tvDate.getText().toString();
-            intent.putExtra("keyName", date);
-            setResult(RESULT_OK, intent);
+            if(!date.equals("Select Date")) {
 
-            MainActivity.Tasklists.add(cpt,new TL(date, new ArrayList<>()));
+                // Putting the String to pass back into an Intent and then closing the taskList adder activity
+                Intent intent = new Intent();
+                intent.putExtra("keyName", date);
+                setResult(RESULT_OK, intent);
 
-            MainActivity.Tasklists.get(cpt).Date = date;
+                MainActivity.Tasklists.add(cpt, new TL(date, new ArrayList<>()));
 
-            cpt++;
+                MainActivity.Tasklists.get(cpt).Date = date;
+
+                cpt++;
 
 
-            this.finish();
+                this.finish();
+            }
         });
 
 
@@ -116,41 +117,40 @@ public class TasklistAdder extends AppCompatActivity {
 
         ImageButton validate = findViewById(R.id.validateButton);
         validate.setOnClickListener((v) -> {
-
-
-            // Putting the String to pass back into an Intent and then closing the taskList adder activity
-            Intent intent = new Intent();
             date = tvDate.getText().toString();
-            intent.putExtra("keyName", date);
-            setResult(RESULT_OK, intent);
 
-            ArrayList<T> Tasks = new ArrayList<>();
-            Tasks.add(new T("","",""));
-            MainActivity.Tasklist_array.add(new TL(date, Tasks));
+            if(!date.equals("Select Date")) {
+                // Putting the String to pass back into an Intent and then closing the taskList adder activity
+                Intent intent = new Intent();
+                intent.putExtra("keyName", date);
+                setResult(RESULT_OK, intent);
 
-
-
-
-
-            rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
-            reference = rootNode.getReference();
-            DatabaseReference rrr = reference.child("Tasklists");
-            //connecting to the Firebase database and getting the reference
-            rrr.setValue(null);
-            rrr.setValue(MainActivity.Tasklist_array);
-
-            //updating the database with the new tasklist
-
-            this.finish();
+                ArrayList<T> Tasks = new ArrayList<>();
+                Tasks.add(new T("", "", ""));
+                MainActivity.Tasklist_array.add(new TL(date, Tasks));
 
 
+                rootNode = FirebaseDatabase.getInstance("https://kids-app-ae14b-default-rtdb.europe-west1.firebasedatabase.app/");
+                reference = rootNode.getReference();
+                DatabaseReference rrr = reference.child("Tasklists");
+                //connecting to the Firebase database and getting the reference
+                rrr.setValue(null);
+                rrr.setValue(MainActivity.Tasklist_array);
 
+                //updating the database with the new tasklist
+
+                this.finish();
 
 
 
 
 
-            this.finish();
+
+
+
+        //    this.finish();
+        }
         });
+
     }
 }
