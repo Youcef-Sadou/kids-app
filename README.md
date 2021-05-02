@@ -18,7 +18,8 @@ que si vous sélectionnez une date)
 
 Si vous souhaitez supprimer une certaine liste de tâches, tout ce que vous avez à faire est de rester sur la liste de tâches
 
-<< insérer la suppression de la liste des tâches gif >>
+![delete tasklist](https://user-images.githubusercontent.com/61503552/116823616-5cbbb800-ab7d-11eb-8a0a-22aa91392614.gif)
+
 
 
 Lorsque vous entrez dans une liste de tâches, vous serez dans l'activité de tâche, la première fois que vous recevrez un message indiquant que vous n'avez aucune tâche, avec le même bouton que l'activité précédente de la liste de tâches que vous peut ajouter une tâche, pour ajouter une tâche il suffit de sélectionner l'heure de la tâche, la catégorie de la tâche (École, Domicile ....) et la description puis appuyer sur valider comme indiqué ci-dessous
