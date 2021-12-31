@@ -1,6 +1,6 @@
 # Kids App
 
-Ce readme est disponible en deux langues: [anglais](#english) et [français](#français)
+Ce readme est disponible en deux langues: [Anglais](#english) et [Français](#français)
 This readme has two languages : [English](#english) and [French](#français)
 
 ## Français:
